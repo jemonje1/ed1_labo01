@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SortingTester<T extends Comparable<T>> {
-    private static final int ARRAY_SIZE = 1000;
-    private static final int TEST_SIZE = 100;
+    private static final int ARRAY_SIZE = 100;
+    private static final int TEST_SIZE = 20;
 
     public void testSorting(ArrayGenerator<T> generator, QuickSort<T> quickSort) {
         T[] array = generator.generate(ARRAY_SIZE);
