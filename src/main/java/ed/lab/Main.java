@@ -1,62 +1,63 @@
 package ed.lab;
 
 public class Main {
-    private static final ArrayGenerator<Integer> sortedArrayGenerator = (length)->{
-        Integer [] arr = new Integer[length];
-        for(int i=0; i<length; i++){
-            arr[i] = i;
+    private static final ArrayGenerator<String> sortedArrayGenerator = (length)->{
+        String [] arr = new String[length];
+        for (int i = 0; i < length; i++) {
+            arr[i] = Character.toString((char) ('a' + i));
         }
         return arr;
     }; // Reemplácelo por una función lambda
 
-    private static final ArrayGenerator<Integer> invertedArrayGenerator = (length)->{
-        Integer[] arr = new Integer[length];
+    private static final ArrayGenerator<String> invertedArrayGenerator = (length)->{
+        String[] arr = new String[length];
         for (int i = 0; i < length; i++) {
-            arr[i] = length - 1 - i;
+            arr[i] = Character.toString((char) ('z' - i));
         }
         return arr;
     }; // Reemplácelo por una función lambda
 
-    private static final ArrayGenerator<Integer> randomArrayGenerator = (length)->{
-        Integer[] array = new Integer[length];
+    private static final ArrayGenerator<String> randomArrayGenerator = (length)->{
+        String[] array = new String[length];
         for (int i = 0; i < length; i++) {
-            array[i] = (int)(Math.random()*length);
+            char randomChar = (char) ('a' + (int) (Math.random() * 26));
+            array[i] = Character.toString(randomChar);
         }
         return array;
     }; // Reemplácelo por una función lambda
 
-    private static final QuickSort<Integer> highPivotQuickSort = array -> SortingAlgorithms.highPivotQuickSort(array,0,array.length-1);// Reemplácelo por una referencia a un método
+    private static final QuickSort<String> highPivotQuickSort = array -> SortingAlgorithms.highPivotQuickSort(array,0,array.length-1);// Reemplácelo por una referencia a un método
 
-    private static final QuickSort<Integer> lowPivotQuickSort = array->SortingAlgorithms.lowPivotQuickSort(array, 0,array.length-1); // Reemplácelo por una referencia a un método
+    private static final QuickSort<String> lowPivotQuickSort = array->SortingAlgorithms.lowPivotQuickSort(array, 0,array.length-1); // Reemplácelo por una referencia a un método
 
-    private static final QuickSort<Integer> randomPivotQuickSort = array->SortingAlgorithms.randomPivotQuickSort(array,0,array.length-1); // Reemplácelo por una referencia a un método
+    private static final QuickSort<String> randomPivotQuickSort = array->SortingAlgorithms.randomPivotQuickSort(array,0,array.length-1); // Reemplácelo por una referencia a un método
 
-    public static QuickSort<Integer> getHighPivotQuickSort() {
+    public static QuickSort<String> getHighPivotQuickSort() {
         return highPivotQuickSort;
     }
 
-    public static QuickSort<Integer> getLowPivotQuickSort() {
+    public static QuickSort<String> getLowPivotQuickSort() {
         return lowPivotQuickSort;
     }
 
-    public static QuickSort<Integer> getRandomPivotQuickSort() {
+    public static QuickSort<String> getRandomPivotQuickSort() {
         return randomPivotQuickSort;
     }
 
-    public static ArrayGenerator<Integer> getSortedArrayGenerator() {
+    public static ArrayGenerator<String> getSortedArrayGenerator() {
         return sortedArrayGenerator;
     }
 
-    public static ArrayGenerator<Integer> getInvertedArrayGenerator() {
+    public static ArrayGenerator<String> getInvertedArrayGenerator() {
         return invertedArrayGenerator;
     }
 
-    public static ArrayGenerator<Integer> getRandomArrayGenerator() {
+    public static ArrayGenerator<String> getRandomArrayGenerator() {
         return randomArrayGenerator;
     }
 
     public static void main(String[] args) {
-        final SortingTester<Integer> tester = new SortingTester<>();
+        final SortingTester<String> tester = new SortingTester<>();
 
         System.out.println("Ordenando un arreglo ordenado:");
         System.out.println("\tUtilizando el último elemento como pivote: ");
